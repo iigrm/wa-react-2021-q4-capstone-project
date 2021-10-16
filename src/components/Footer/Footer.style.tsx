@@ -13,4 +13,5 @@ export const FooterWraper = styled.div`
   bottom: 0;
   font-size: 10px;
   color: #ccc;
+  padding: 0 16px;
 `;
