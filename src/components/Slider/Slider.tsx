@@ -23,7 +23,7 @@ export const Slider = (props: Props) => {
     }
   };
 
-  const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
+  const handleScroll = () => {
     const wrapper = wrapperRef.current;
     if (wrapper) {
       const width = wrapper.firstElementChild?.clientWidth || 0;
