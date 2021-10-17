@@ -5,7 +5,7 @@ import { Header } from "../Header/Header";
 import * as S from "./Layout.style";
 
 type Props = {
-  children: JSX.Element;
+  children: JSX.Element[];
 };
 
 export const Layout = (props: Props) => {

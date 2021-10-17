@@ -32,15 +32,16 @@ export const Slider = (props: Props) => {
     }
   };
   return (
-    <S.SliderWrapper ref={wrapperRef} onScroll={handleScroll}>
-      {props.items.map((item, key) => (
-        <S.SlideWrapper key={`slider_item_${key}`}>
-          <S.ImageSlider src={item.imageUrl} />
-          <S.TitleSlider>{item.title}</S.TitleSlider>
-          <S.DescriptionSlider>{item.description}</S.DescriptionSlider>
-        </S.SlideWrapper>
-      ))}
-
+    <S.SliderContainer>
+      <S.SliderWrapper ref={wrapperRef} onScroll={handleScroll}>
+        {props.items.map((item, key) => (
+          <S.SlideWrapper key={`slider_item_${key}`}>
+            <S.ImageSlider src={item.imageUrl} loading="lazy" />
+            <S.TitleSlider>{item.title}</S.TitleSlider>
+            <S.DescriptionSlider>{item.description}</S.DescriptionSlider>
+          </S.SlideWrapper>
+        ))}
+      </S.SliderWrapper>
       <S.SliderControls>
         {props.items.map((item, idx) => (
           <S.SliderControl
@@ -50,6 +51,6 @@ export const Slider = (props: Props) => {
           />
         ))}
       </S.SliderControls>
-    </S.SliderWrapper>
+    </S.SliderContainer>
   );
 };

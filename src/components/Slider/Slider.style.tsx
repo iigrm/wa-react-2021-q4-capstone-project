@@ -76,3 +76,7 @@ export const SliderControl = styled.button<{ selected: boolean }>`
     background: rgba(7, 186, 217, 1);
   `}
 `;
+
+export const SliderContainer = styled.div`
+  position: relative;
+`;
