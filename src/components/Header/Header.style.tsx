@@ -15,4 +15,5 @@ export const HeaderWrapper = styled.header`
   align-items: center;
   justify-content: space-between;
   box-shadow: 1px 4px 10px rgba(141, 127, 127, 0.5);
+  z-index: 1;
 `;
