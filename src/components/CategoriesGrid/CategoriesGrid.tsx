@@ -11,8 +11,8 @@ type Props = {
 export const CategoriesGrid = (props: Props) => {
   return (
     <S.CategoriesGridWrapper>
-      {props.categories.map((category) => (
-        <CategoryCard category={category} />
+      {props.categories.map((category, idx) => (
+        <CategoryCard category={category} key={`category_grid_${idx}`} />
       ))}
     </S.CategoriesGridWrapper>
   );

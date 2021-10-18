@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const CardWrapper = styled.div<{ height: number; width: number }>`
-  height: ${(props) => props.height}px;
   width: ${(props) => props.width}px;
   margin: 8px;
   border: 1px solid #fefefe;
@@ -9,4 +8,6 @@ export const CardWrapper = styled.div<{ height: number; width: number }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  padding: 16px;
 `;
