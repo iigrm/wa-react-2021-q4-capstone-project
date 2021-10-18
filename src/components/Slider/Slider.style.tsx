@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BREAKPOINTS } from "../../utils/variables";
 
 export const SliderWrapper = styled.div`
   display: flex;
@@ -35,17 +36,30 @@ export const TitleSlider = styled.div`
   background: rgba(250, 250, 250, 0.7);
   top: 10%;
   padding: 30px;
-  font-size: 1.5rem;
+  font-size: 10px;
+  @media ${BREAKPOINTS.TABLET} {
+    font-size: 20px;
+  }
+
+  @media ${BREAKPOINTS.DESKTOP} {
+    font-size: 24px;
+  }
   color: #333;
 `;
 
 export const DescriptionSlider = styled.div`
   position: absolute;
   background: rgba(100, 100, 100, 0.4);
-  top: 40%;
-  left: 10%;
-  padding: 10px;
-  font-size: 1.2rem;
+  top: 50%;
+  font-size: 10px;
+  @media ${BREAKPOINTS.TABLET} {
+    font-size: 16px;
+  }
+
+  @media ${BREAKPOINTS.DESKTOP} {
+    font-size: 20px;
+  }
+  padding: 30px;
   color: #fff;
 `;
 
