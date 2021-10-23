@@ -12,8 +12,8 @@ export const ProductsGrid = (props: Props) => {
   return (
     <>
       <S.ProductsGridWrapper>
-        {props.products.map((product, idx) => (
-          <ProductCard product={product} key={`product_card_${idx}`} />
+        {props.products.map((product) => (
+          <ProductCard product={product} key={`${product.id}`} />
         ))}
       </S.ProductsGridWrapper>
       );
