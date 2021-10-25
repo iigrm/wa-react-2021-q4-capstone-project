@@ -16,7 +16,6 @@ export const ProductsGrid = (props: Props) => {
           <ProductCard product={product} key={`${product.id}`} />
         ))}
       </S.ProductsGridWrapper>
-      );
     </>
   );
 };

@@ -19,11 +19,8 @@ export const RouterProvider: React.FC = ({ children }) => {
   const [route, setRoute] = useState(defaultState.route);
 
   const changeRoute = (route: string) => {
-    console.log("changeroute provider", route);
     setRoute(route);
   };
-
-  console.log("value in provider", route);
 
   return (
     <RouterContext.Provider

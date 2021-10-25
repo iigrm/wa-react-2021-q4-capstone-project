@@ -6,6 +6,7 @@ export const getCategories = () => {
     imageUrl: result.data.main_image.url,
     href: result.href,
     name: result.data.name,
+    id: result.id,
   }));
   return parsedCategories;
 };
