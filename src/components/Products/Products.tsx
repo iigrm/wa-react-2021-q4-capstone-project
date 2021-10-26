@@ -1,23 +1,31 @@
 import React from "react";
 import { ProductsGrid } from "../ProductsGrid/ProductsGrid";
-
-import PRODUCTS from "../../mocks/es-mx/featured-products.json";
-import { ProductType } from "../../models/ProductType";
 import * as S from "./Products.style";
+import { useNavigation } from "../../hooks/useNavigation";
+import { ButtonLink } from "../ButtonLink/ButtonLink";
+import { getFeaturedProducts } from "../../services/products";
 
-export const Products = () => {
-  const parsedProducts: ProductType[] = PRODUCTS.results.map((result) => ({
-    name: result.data.name,
-    sku: result.data.sku,
-    imageUrl: result.data.mainimage.url,
-    category: result.data.category.slug,
-    stock: result.data.stock,
-    price: result.data.price,
-  }));
+type Props = {};
+
+export const Products = (props: Props) => {
+  const { navigateTo } = useNavigation();
+  const products = getFeaturedProducts(6);
+
   return (
     <S.ProductsWrapper>
-      <S.Title>Products</S.Title>
-      <ProductsGrid products={parsedProducts} />
+      <div style={{ display: "flex" }}>
+        <S.Title>Products</S.Title>
+
+        <ButtonLink
+          onClick={() => {
+            navigateTo("/products");
+          }}
+        >
+          ( View all )
+        </ButtonLink>
+      </div>
+
+      <ProductsGrid products={products} />
     </S.ProductsWrapper>
   );
 };
