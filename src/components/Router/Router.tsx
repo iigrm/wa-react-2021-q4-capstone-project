@@ -10,7 +10,7 @@ export const Router = () => {
         <Route path="/products">
           <ProductList />
         </Route>
-        <Route path="/">
+        <Route path={["/", "/home"]}>
           <Home />
         </Route>
         <Route path="*">
