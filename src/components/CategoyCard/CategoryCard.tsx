@@ -2,7 +2,6 @@ import React from "react";
 import { CategoryType } from "../../models/CategoryType";
 import { Card } from "../Card/Card";
 import { Typography } from "../Typogrphy/Typography";
-import { useNavigation } from "../../hooks/useNavigation";
 import * as S from "./CategoryCard.style";
 import { Link } from "react-router-dom";
 

@@ -13,6 +13,7 @@ const parseProducts = (productInput: ProductsDataType) => {
       category: result.data.category.id,
       stock: result.data.stock,
       price: result.data.price,
+      images: result.data.images?.map((image) => image.image.url) || [],
     })) || [];
 
   return parsedProducts;
