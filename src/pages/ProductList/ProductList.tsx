@@ -8,6 +8,10 @@ import { getProducts } from "../../services/products";
 import * as S from "./ProductList.style";
 
 export const ProductList = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [products, setProducts] = useState(getProducts());
   const [filters, setFilters] = useState<string[]>([]);
 
@@ -35,12 +39,17 @@ export const ProductList = () => {
     ]);
   };
 
+  const handleClearFilter = () => {
+    setFilters([]);
+  };
+
   return (
     <Layout>
       <S.ProductListWrapper>
         <S.CategoriesFilterWrapper>
           <CategoriesFilters
             onSelectFilter={handleSelectFilter}
+            onClearFilter={handleClearFilter}
             filters={filters}
           />
         </S.CategoriesFilterWrapper>

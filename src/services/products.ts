@@ -1,9 +1,9 @@
 import FEATURED_PRODUCTS from "../mocks/en-us/featured-products.json";
 import PRODUCTS from "../mocks/en-us/products.json";
-import { ProductsInput } from "../models/ProductsInputType";
+import { ProductsDataType } from "../models/ProductsDataType";
 import { ProductType } from "../models/ProductType";
 
-const parseProducts = (productInput: ProductsInput) => {
+const parseProducts = (productInput: ProductsDataType) => {
   const parsedProducts: ProductType[] =
     productInput.results?.map((result) => ({
       id: result.id,

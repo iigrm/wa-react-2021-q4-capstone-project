@@ -7,6 +7,7 @@ export const getCategories = () => {
     href: result.href,
     name: result.data.name,
     id: result.id,
+    slug: result.slugs[0],
   }));
   return parsedCategories;
 };

@@ -7,6 +7,7 @@ import * as S from "./CategoriesFilter.style";
 
 type Props = {
   onSelectFilter: (filter: string) => void;
+  onClearFilter: () => void;
   filters: string[];
 };
 
@@ -35,6 +36,14 @@ export const CategoriesFilters = (props: Props) => {
               </ButtonLink>
             </S.CategoriesFiltersButtonWrapper>
           ))}
+
+          <ButtonLink onClick={() => props.onClearFilter()}>
+            <b>
+              <Typography variant="h3" align="center">
+                Clear All
+              </Typography>
+            </b>
+          </ButtonLink>
         </S.CategoriesFilterItemsWrapper>
       </S.CategoriesFilterContainerWrapper>
     </div>

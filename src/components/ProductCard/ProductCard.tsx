@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { ProductType } from "../../models/ProductType";
 import { Card } from "../Card/Card";
@@ -13,7 +14,7 @@ type Props = {
 export const ProductCard = (props: Props) => {
   const { product } = props;
   return (
-    <>
+    <Link to={`/product/${props.product.id}`}>
       <Card height={300} width={200}>
         <Typography variant="h3" align="center">
           {product.name}
@@ -32,6 +33,6 @@ export const ProductCard = (props: Props) => {
           })}
         </Typography>
       </Card>
-    </>
+    </Link>
   );
 };

@@ -1,15 +1,11 @@
 import React from "react";
+import { useBanners } from "../../hooks/useBanners";
+
+import { SkeletonShimmer } from "../SkeletonShimmer/SkeletonShimmer";
 import { Slider } from "../Slider/Slider";
-
-import BANNERS from "../../mocks/es-mx/featured-banners.json";
-
 export const BannerSlider = () => {
-  const parsedBanners = BANNERS.results.map((result) => ({
-    imageUrl: result.data.main_image.url,
-    href: result.href,
-    title: result.data.title,
-    description: result.data.description[0].text,
-  }));
+  const { isLoading, data } = useBanners();
 
-  return <Slider items={parsedBanners} />;
+  if (isLoading) return <SkeletonShimmer width="100%" height="400px" />;
+  return <>{!isLoading && <Slider items={data || []} />} </>;
 };
