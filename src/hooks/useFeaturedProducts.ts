@@ -2,6 +2,7 @@ import { useBaseRequest } from "./useBaseRequest";
 import { API_BASE_URL } from "../utils/constants";
 import { useQuery } from "react-query";
 import { ProductsDataType } from "../models/ProductsDataType";
+import { parseProducts } from "../utils/products";
 
 export const useFeaturedProducts = () => {
   const { data: ref, isLoading: isLoadingBaseRequest } = useBaseRequest();
@@ -18,16 +19,7 @@ export const useFeaturedProducts = () => {
     );
     const data: ProductsDataType = await response.json();
     if (data && data.results) {
-      return data.results?.map((result) => ({
-        id: result.id,
-        name: result.data.name,
-        sku: result.data.sku,
-        imageUrl: result.data.mainimage.url,
-        category: result.data.category.id,
-        stock: result.data.stock,
-        price: result.data.price,
-        images: result.data.images?.map((image) => image.image.url) || [],
-      }));
+      return parseProducts(data);
     }
   };
 

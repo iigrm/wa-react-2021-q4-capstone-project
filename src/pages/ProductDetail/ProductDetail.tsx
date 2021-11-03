@@ -6,6 +6,8 @@ import { LoadingView } from "../../components/LoadingView/LoadingView";
 import { ProductDescription } from "../../components/ProductDescription/ProductDescription";
 import { ProductImage } from "../../components/ProductImage/ProductImage";
 import { ProductInfo } from "../../components/ProductInfo/ProductInfo";
+import { ProductSpecs } from "../../components/ProductSpecs/ProductSpecs";
+import { Typography } from "../../components/Typogrphy/Typography";
 import { useProductDetail } from "../../hooks/useProductDetail";
 
 import * as S from "./ProductDetailWrapper.style";
@@ -22,17 +24,20 @@ export const ProductDetail = () => {
       {data && !isLoading && (
         <Layout>
           <S.ProductDetailWrapper>
-            <S.ProductInfoWrapper>
-              <ProductInfo product={data} />
-            </S.ProductInfoWrapper>
             <S.ProductImageWrapper>
+              <Typography variant="h2">{data.name}</Typography>
+              <Typography variant="h6" color="#666">
+                SKU: {data.sku}
+              </Typography>
               <ProductImage product={data} />
             </S.ProductImageWrapper>
-            <S.ButtonWrapper>
-              <Button onClick={() => {}}>Add to cart </Button>
-            </S.ButtonWrapper>
             <S.ProductDescription>
+              <S.ButtonWrapper>
+                <Button onClick={() => {}}>Add to cart </Button>
+              </S.ButtonWrapper>
+              <ProductInfo product={data} />
               <ProductDescription product={data} />
+              <ProductSpecs product={data} />
             </S.ProductDescription>
           </S.ProductDetailWrapper>
         </Layout>

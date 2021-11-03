@@ -29,7 +29,12 @@ export const Products = (props: Props) => {
               ( View all )
             </ButtonLink>
           </div>
-          <ProductsGrid products={data} />
+          <ProductsGrid
+            products={data.products}
+            pagination={data.pagination}
+            onSetPage={() => {}}
+            showPagination={false}
+          />
         </>
       )}
     </S.ProductsWrapper>

@@ -2,26 +2,12 @@ import styled from "styled-components";
 import { BREAKPOINTS } from "../../utils/variables";
 
 export const ProductDetailWrapper = styled.div`
-  display: grid;
+  display: flex;
   padding: 16px;
-
-  grid-template-areas:
-    "product-info product-info"
-    "product-image product-image"
-    "button button"
-    "product-description product-description";
-
-  @media ${BREAKPOINTS.TABLET} {
-    grid-template-areas:
-      "product-info button"
-      "product-image product-description";
-    grid-template-columns: auto auto;
-  }
+  flex-direction: column;
 
   @media ${BREAKPOINTS.DESKTOP} {
-    grid-template-areas:
-      "product-info button"
-      "product-image product-description";
+    flex-direction: row;
   }
 `;
 
@@ -31,12 +17,17 @@ export const ProductInfoWrapper = styled.div`
 `;
 
 export const ProductImageWrapper = styled.div`
-  grid-area: product-image;
+  width: 100%;
+  @media ${BREAKPOINTS.DESKTOP} {
+    min-width: 60%;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
-  padding: 8px;
-  grid-area: button;
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 export const ProductDescription = styled.div`
   grid-area: product-description;

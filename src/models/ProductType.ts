@@ -9,5 +9,7 @@ export type ProductType = {
   images: string[];
   description?: string;
   tags?: string[];
+  categorySlug: string;
   categoryName?: string;
+  specs?: { specName: string; specValue: string }[];
 };

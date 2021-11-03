@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import { ProductType } from "../../models/ProductType";
 import { Card } from "../Card/Card";
+import { Button } from "../Button/Button";
 import { Typography } from "../Typogrphy/Typography";
 
 import * as S from "./ProductCard.style";
@@ -26,12 +27,13 @@ export const ProductCard = (props: Props) => {
           Stock: {product.stock}
         </Typography>
         <S.ProductImage src={product.imageUrl} loading="lazy" />
-        <Typography variant="h4" color="rgba(30, 68, 199, 1)">
+        <Typography variant="h4" color="#404042">
           {product.price.toLocaleString("en-US", {
             style: "currency",
             currency: "USD",
           })}
         </Typography>
+        <Button onClick={() => {}}>Add to cart</Button>
       </Card>
     </Link>
   );
