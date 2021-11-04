@@ -1,26 +1,44 @@
 import React, { useEffect, useState } from "react";
+import { useHistory, useLocation } from "react-router";
+
 import { CategoriesFilters } from "../../components/CategoriesFilters/CategoriesFilter";
 import { Layout } from "../../components/Layout/Layout";
-import { Pagination } from "../../components/Pagination/Pagination";
+import { LoadingView } from "../../components/LoadingView/LoadingView";
 import { ProductsGrid } from "../../components/ProductsGrid/ProductsGrid";
 import { Typography } from "../../components/Typogrphy/Typography";
-import { getProducts } from "../../services/products";
+import { useProducts } from "../../hooks/useProducts";
+import { ProductType } from "../../models/ProductType";
+
 import * as S from "./ProductList.style";
 
 export const ProductList = () => {
-  const [products, setProducts] = useState(getProducts());
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const history = useHistory();
+  const search = useLocation().search;
+  const searchParam = new URLSearchParams(search);
+  const page = parseInt(searchParam.get("page") || "1");
+  const { data, isLoading } = useProducts([], page);
+
+  const [products, setProducts] = useState<ProductType[]>([]);
   const [filters, setFilters] = useState<string[]>([]);
 
   useEffect(() => {
-    const products = getProducts();
-    if (filters.length === 0) {
-      setProducts(products);
-    } else {
-      setProducts(
-        products.filter((product) => filters.indexOf(product.category) !== -1)
-      );
+    if (data && !isLoading) {
+      const products = data.products;
+      if (filters.length === 0) {
+        setProducts(products);
+      } else {
+        setProducts(
+          products.filter(
+            (product) => filters.indexOf(product.categorySlug) !== -1
+          )
+        );
+      }
     }
-  }, [filters]);
+  }, [filters, data, isLoading]);
 
   const handleSelectFilter = (filter: string) => {
     const filterIdx = filters.indexOf(filter);
@@ -35,26 +53,46 @@ export const ProductList = () => {
     ]);
   };
 
+  const handleClearFilter = () => {
+    setFilters([]);
+  };
+
+  const handleSetPage = (page: number) => {
+    history.push({
+      pathname: "/products",
+      search: `?page=${page}`,
+    });
+  };
+
+  if (!data && isLoading) return <LoadingView />;
+
   return (
-    <Layout>
-      <S.ProductListWrapper>
-        <S.CategoriesFilterWrapper>
-          <CategoriesFilters
-            onSelectFilter={handleSelectFilter}
-            filters={filters}
-          />
-        </S.CategoriesFilterWrapper>
-        <S.ProductsWrapper>
-          {products.length ? (
-            <ProductsGrid products={products} />
-          ) : (
-            <Typography variant="h2">No results found</Typography>
-          )}
-        </S.ProductsWrapper>
-      </S.ProductListWrapper>
-      <S.PaginationWrapper>
-        <Pagination />
-      </S.PaginationWrapper>
-    </Layout>
+    <>
+      {data && (
+        <Layout>
+          <S.ProductListWrapper>
+            <S.CategoriesFilterWrapper>
+              <CategoriesFilters
+                onSelectFilter={handleSelectFilter}
+                onClearFilter={handleClearFilter}
+                filters={filters}
+              />
+            </S.CategoriesFilterWrapper>
+            <S.ProductsWrapper>
+              {products.length ? (
+                <ProductsGrid
+                  products={products}
+                  pagination={data?.pagination}
+                  onSetPage={(page: number) => handleSetPage(page)}
+                  showPagination={true}
+                />
+              ) : (
+                <Typography variant="h2">No results found</Typography>
+              )}
+            </S.ProductsWrapper>
+          </S.ProductListWrapper>
+        </Layout>
+      )}
+    </>
   );
 };

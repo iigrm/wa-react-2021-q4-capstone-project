@@ -3,4 +3,5 @@ export type CategoryType = {
   name: string;
   href: string;
   id: string;
+  slug: string;
 };

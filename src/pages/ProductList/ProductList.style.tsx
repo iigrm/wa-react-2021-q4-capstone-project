@@ -29,4 +29,9 @@ export const ProductsWrapper = styled.div`
   padding: 16px;
 `;
 
-export const PaginationWrapper = styled.div``;
+export const PaginationWrapper = styled.div`
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

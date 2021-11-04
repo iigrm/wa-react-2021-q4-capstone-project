@@ -1,42 +1,57 @@
 import React from "react";
-import { getCategories } from "../../services/categories";
+import { useFeaturedCategories } from "../../hooks/useFeaturedCategories";
 import { ButtonLink } from "../ButtonLink/ButtonLink";
+import { SkeletonShimmer } from "../SkeletonShimmer/SkeletonShimmer";
 import { Typography } from "../Typogrphy/Typography";
 
 import * as S from "./CategoriesFilter.style";
 
 type Props = {
   onSelectFilter: (filter: string) => void;
+  onClearFilter: () => void;
   filters: string[];
 };
 
 export const CategoriesFilters = (props: Props) => {
-  const categories = getCategories();
+  const { data, isLoading } = useFeaturedCategories();
 
+  if (isLoading) <SkeletonShimmer height="400px" width="100%" />;
   return (
-    <div>
-      <Typography variant="h4">Filters</Typography>
+    <>
+      {data && !isLoading && (
+        <div>
+          <Typography variant="h4">Filters</Typography>
 
-      <S.CategoriesFilterContainerWrapper>
-        <Typography variant="h6">By category</Typography>
+          <S.CategoriesFilterContainerWrapper>
+            <Typography variant="h6">By category</Typography>
 
-        <S.CategoriesFilterItemsWrapper>
-          {categories.map((category) => (
-            <S.CategoriesFiltersButtonWrapper key={category.id}>
-              <ButtonLink
-                onClick={() => props.onSelectFilter(category.id)}
-                key={category.id}
-              >
-                {props.filters.indexOf(category.id) > -1 ? (
-                  <S.CategorySelected>{category.name}</S.CategorySelected>
-                ) : (
-                  category.name
-                )}
+            <S.CategoriesFilterItemsWrapper>
+              {data.map((category) => (
+                <S.CategoriesFiltersButtonWrapper key={category.slug}>
+                  <ButtonLink
+                    onClick={() => props.onSelectFilter(category.slug)}
+                    key={category.id}
+                  >
+                    {props.filters.indexOf(category.slug) > -1 ? (
+                      <S.CategorySelected>{category.name}</S.CategorySelected>
+                    ) : (
+                      category.name
+                    )}
+                  </ButtonLink>
+                </S.CategoriesFiltersButtonWrapper>
+              ))}
+
+              <ButtonLink onClick={() => props.onClearFilter()}>
+                <b>
+                  <Typography variant="h3" align="center">
+                    Clear All
+                  </Typography>
+                </b>
               </ButtonLink>
-            </S.CategoriesFiltersButtonWrapper>
-          ))}
-        </S.CategoriesFilterItemsWrapper>
-      </S.CategoriesFilterContainerWrapper>
-    </div>
+            </S.CategoriesFilterItemsWrapper>
+          </S.CategoriesFilterContainerWrapper>
+        </div>
+      )}
+    </>
   );
 };

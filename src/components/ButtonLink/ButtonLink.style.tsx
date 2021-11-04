@@ -7,7 +7,13 @@ export const ButtonLink = styled.button`
   border: 0;
   height: 30xpx;
   cursor: pointer;
+
   &:hover {
     text-decoration: underline;
+  }
+
+  &::disabled {
+    cursor: not-allowed;
+    text-decoration: none;
   }
 `;

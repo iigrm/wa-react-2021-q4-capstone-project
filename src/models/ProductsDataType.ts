@@ -1,4 +1,4 @@
-export interface ProductsInput {
+export interface ProductsDataType {
   page: number;
   results_per_page: number;
   results_size: number;

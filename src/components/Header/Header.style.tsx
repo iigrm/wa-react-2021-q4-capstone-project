@@ -14,6 +14,17 @@ export const HeaderWrapper = styled.header`
   height: 60px;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 1px 4px 10px rgba(141, 127, 127, 0.5);
+  // box-shadow: 1px 4px 10px rgba(141, 127, 127, 0.5);
   z-index: 1;
+`;
+
+export const Input = styled.input`
+  border: 0px;
+  border-radius: 8px;
+  height: 24px;
+  width: 100%;
+  margin-left: 8px;
+  margin-right: 8px;
+  padding: 8px;
+  outline: 0;
 `;
