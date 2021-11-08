@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./Button.style";
 type Props = {
-  onClick: () => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children: JSX.Element | string | JSX.Element[];
 };
 

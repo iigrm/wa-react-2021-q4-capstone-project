@@ -4,6 +4,8 @@ import { NotFound } from "../../pages/NotFound/NotFound";
 import { ProductDetail } from "../../pages/ProductDetail/ProductDetail";
 import { ProductList } from "../../pages/ProductList/ProductList";
 import { Search } from "../../pages/Search/Search";
+import { Cart } from "../../pages/Cart/Cart";
+import { Checkout } from "../../pages/Checkout/Checkout";
 
 export const Router = () => {
   return (
@@ -20,6 +22,12 @@ export const Router = () => {
         </Route>
         <Route exact path="/search">
           <Search />
+        </Route>
+        <Route exact path="/cart">
+          <Cart />
+        </Route>
+        <Route exact path="/checkout">
+          <Checkout />
         </Route>
         <Route path="*">
           <NotFound />

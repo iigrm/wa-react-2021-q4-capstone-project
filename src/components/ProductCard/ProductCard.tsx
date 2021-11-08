@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 
 import { ProductType } from "../../models/ProductType";
 import { Card } from "../Card/Card";
-import { Button } from "../Button/Button";
 import { Typography } from "../Typogrphy/Typography";
 
 import * as S from "./ProductCard.style";
+import { AddTocartButton } from "../AddToCartButton/AddToCartButton";
+import { formatPrice } from "../../utils/products";
 
 type Props = {
   product: ProductType;
@@ -15,8 +16,8 @@ type Props = {
 export const ProductCard = (props: Props) => {
   const { product } = props;
   return (
-    <Link to={`/product/${props.product.id}`}>
-      <Card height={300} width={200}>
+    <Card height={300} width={200}>
+      <Link to={`/product/${props.product.id}`}>
         <Typography variant="h3" align="center">
           {product.name}
         </Typography>
@@ -28,13 +29,10 @@ export const ProductCard = (props: Props) => {
         </Typography>
         <S.ProductImage src={product.imageUrl} loading="lazy" />
         <Typography variant="h4" color="#404042">
-          {product.price.toLocaleString("en-US", {
-            style: "currency",
-            currency: "USD",
-          })}
+          {formatPrice(product.price)}
         </Typography>
-        <Button onClick={() => {}}>Add to cart</Button>
-      </Card>
-    </Link>
+      </Link>
+      <AddTocartButton product={product} />
+    </Card>
   );
 };

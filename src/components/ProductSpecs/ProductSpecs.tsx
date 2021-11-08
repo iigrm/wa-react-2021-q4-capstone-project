@@ -13,15 +13,19 @@ export const ProductSpecs = (props: Props) => {
     <S.ProductSpecs>
       <Typography variant="h4">Specs</Typography>
       <S.Table>
-        <S.TR>
-          <th>Spec name</th>
-          <th>Spec value</th>
-        </S.TR>
-        {props.product.specs?.map((spec) => (
+        <thead>
           <S.TR>
-            <td>{spec.specName}</td> <td>{spec.specValue}</td>
+            <th>Spec name</th>
+            <th>Spec value</th>
           </S.TR>
-        ))}
+        </thead>
+        <tbody>
+          {props.product.specs?.map((spec) => (
+            <S.TR key={`specs_${spec.specName}`}>
+              <td>{spec.specName}</td> <td>{spec.specValue}</td>
+            </S.TR>
+          ))}
+        </tbody>
       </S.Table>
     </S.ProductSpecs>
   );
