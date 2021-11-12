@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Button } from "../../components/Button/Button";
+import { AddTocartButton } from "../../components/AddToCartButton/AddToCartButton";
 import { Layout } from "../../components/Layout/Layout";
 import { LoadingView } from "../../components/LoadingView/LoadingView";
 import { ProductDescription } from "../../components/ProductDescription/ProductDescription";
@@ -32,9 +32,7 @@ export const ProductDetail = () => {
               <ProductImage product={data} />
             </S.ProductImageWrapper>
             <S.ProductDescription>
-              <S.ButtonWrapper>
-                <Button onClick={() => {}}>Add to cart </Button>
-              </S.ButtonWrapper>
+              <AddTocartButton product={data} />
               <ProductInfo product={data} />
               <ProductDescription product={data} />
               <ProductSpecs product={data} />

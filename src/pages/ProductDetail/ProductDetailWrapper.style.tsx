@@ -26,7 +26,7 @@ export const ProductImageWrapper = styled.div`
 export const ButtonWrapper = styled.div`
   padding: 24px 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 `;
 export const ProductDescription = styled.div`
