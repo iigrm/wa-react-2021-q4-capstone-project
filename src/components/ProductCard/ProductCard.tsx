@@ -32,7 +32,10 @@ export const ProductCard = (props: Props) => {
           {formatPrice(product.price)}
         </Typography>
       </Link>
-      <AddTocartButton product={product} />
+      <AddTocartButton
+        product={product}
+        data-testid="product-card-add-to-cart-button"
+      />
     </Card>
   );
 };

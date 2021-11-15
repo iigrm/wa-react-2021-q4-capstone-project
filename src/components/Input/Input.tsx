@@ -7,6 +7,7 @@ type Props = {
   value: string;
   placeholder: string;
   name: string;
+  "data-testid"?: string;
 };
 
 export const Input = (props: Props) => {
@@ -16,6 +17,7 @@ export const Input = (props: Props) => {
       value={props.value}
       placeholder={props.placeholder}
       name={props.name}
+      data-testid={props["data-testid"]}
     />
   );
 };

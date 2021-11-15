@@ -11,12 +11,13 @@ type Props = {
   pagination: PaginationType;
   onSetPage: (page: number) => void;
   showPagination: boolean;
+  "data-testid"?: string;
 };
 
 export const ProductsGrid = (props: Props) => {
   return (
     <div>
-      <S.ProductsGridWrapper>
+      <S.ProductsGridWrapper data-testid={props["data-testid"]}>
         {props.products.map((product) => (
           <ProductCard product={product} key={`${product.id}`} />
         ))}

@@ -15,7 +15,7 @@ export const Categories = () => {
     <S.CategoriesWrapper>
       {data && !isLoading && (
         <>
-          <S.Title>Categories</S.Title>
+          <S.Title data-testid="categories-title">Categories</S.Title>
           <CategoriesGrid categories={data} />
         </>
       )}

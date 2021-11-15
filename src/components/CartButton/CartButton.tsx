@@ -11,9 +11,12 @@ export const CartButton = () => {
   const { navigateTo } = useNavigation();
   const numItems = useAppSelector((state) => state.cart.length);
   return (
-    <S.CartButtonWrapper onClick={() => navigateTo("/cart")}>
+    <S.CartButtonWrapper
+      onClick={() => navigateTo("/cart")}
+      data-testid="cart-button"
+    >
       <FontAwesomeIcon icon={faShoppingCart} />
-      {numItems > 0 && <S.Badge>{numItems}</S.Badge>}
+      {numItems > 0 && <S.Badge data-testid="cart-badge">{numItems}</S.Badge>}
     </S.CartButtonWrapper>
   );
 };

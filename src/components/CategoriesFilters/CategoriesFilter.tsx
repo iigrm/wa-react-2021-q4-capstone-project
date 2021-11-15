@@ -27,7 +27,10 @@ export const CategoriesFilters = (props: Props) => {
 
             <S.CategoriesFilterItemsWrapper>
               {data.map((category) => (
-                <S.CategoriesFiltersButtonWrapper key={category.slug}>
+                <S.CategoriesFiltersButtonWrapper
+                  key={category.slug}
+                  data-testid="category-filter"
+                >
                   <ButtonLink
                     onClick={() => props.onSelectFilter(category.slug)}
                     key={category.id}

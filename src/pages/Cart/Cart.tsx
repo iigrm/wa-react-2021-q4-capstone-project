@@ -32,7 +32,7 @@ export const Cart = () => {
   if (cartItems.length === 0) {
     return (
       <Layout>
-        <NoCartItems />
+        <NoCartItems data-testid="cart-empty" />
       </Layout>
     );
   }
@@ -40,10 +40,14 @@ export const Cart = () => {
   return (
     <Layout>
       <>
-        <h1>Shopping Cart</h1>
+        <h1 data-testid="cart-title">Shopping Cart</h1>
         <ButtonLink onClick={handleClearItems}>Remove all</ButtonLink>
         {cartItems.map((item) => (
-          <CartItem cartItem={item} quantityEditable />
+          <CartItem
+            cartItem={item}
+            quantityEditable
+            key={`cart_item_${item.product.id}_${item.quantity}`}
+          />
         ))}
         <S.TotalWrapper>
           <Button
@@ -53,7 +57,9 @@ export const Cart = () => {
           >
             Proceed to checkout
           </Button>
-          <Typography variant="h2">Total: {formatPrice(total)} </Typography>
+          <Typography variant="h2" data-testid="cart-total">
+            Total: {formatPrice(total)}{" "}
+          </Typography>
         </S.TotalWrapper>
       </>
     </Layout>

@@ -4,9 +4,13 @@ import NoCartImage from "../../assets/cartempty.png";
 
 import * as S from "./NoCartItems.style";
 
-export const NoCartItems = () => {
+type Props = {
+  "data-testid"?: string;
+};
+
+export const NoCartItems = (props: Props) => {
   return (
-    <S.NoCartItemsWrapper>
+    <S.NoCartItemsWrapper data-testid={props["data-testid"]}>
       <h1>
         Your cart is empty please browse in <Link to="/products">products</Link>
         :)
