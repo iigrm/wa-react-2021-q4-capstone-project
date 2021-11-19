@@ -36,6 +36,7 @@ export const Search = () => {
               pagination={data.pagination}
               onSetPage={handleSetPage}
               showPagination={true}
+              data-testid="search-results"
             />
           </>
         )}
@@ -47,6 +48,7 @@ export const Search = () => {
               alignItems: "center",
               marginTop: "20px",
             }}
+            data-testid="search-no-results"
           >
             <Typography align="center">{`Not results found for search: "${searchTerm}"`}</Typography>
             <img

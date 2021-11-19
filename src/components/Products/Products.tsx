@@ -20,7 +20,7 @@ export const Products = (props: Props) => {
       {data && !isLoading && (
         <>
           <div style={{ display: "flex" }}>
-            <S.Title>Products</S.Title>
+            <S.Title data-testid="featured-product-title">Products</S.Title>
             <ButtonLink
               onClick={() => {
                 navigateTo("/products");

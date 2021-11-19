@@ -8,6 +8,7 @@ import * as S from "./AddToCart.style";
 
 type Props = {
   product: ProductType;
+  "data-testid"?: string;
 };
 
 export const AddTocartButton = (props: Props) => {
@@ -36,7 +37,11 @@ export const AddTocartButton = (props: Props) => {
   return (
     <S.AddToCartBottomWrapper>
       <S.Label>Quantity:</S.Label>
-      <S.Select onChange={handleChange} value={quantity}>
+      <S.Select
+        onChange={handleChange}
+        value={quantity}
+        disabled={props.product.stock === 0}
+      >
         {items.map((item, idx) => (
           <option value={idx + 1} key={`quantity_${idx}`}>
             {idx + 1}
@@ -47,6 +52,8 @@ export const AddTocartButton = (props: Props) => {
         onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
           handleClick(event, props.product)
         }
+        data-testid={props["data-testid"]}
+        disabled={props.product.stock === 0}
       >
         Add to cart
       </Button>

@@ -32,29 +32,48 @@ export const CartItem = (props: Props) => {
 
   return (
     <S.CartItemWrapper>
-      <S.CartItemImageWrapper>
-        <S.CartItemImage src={props.cartItem.product.imageUrl} />
+      <S.CartItemImageWrapper data-testid="cart-item">
+        <S.CartItemImage
+          src={props.cartItem.product.imageUrl}
+          data-testid="cart-item-product-image"
+        />
         {props.quantityEditable && (
-          <ButtonLink onClick={() => handleRemove(props.cartItem)}>
+          <ButtonLink
+            onClick={() => handleRemove(props.cartItem)}
+            data-testid="cart-item-remove"
+          >
             Remove
           </ButtonLink>
         )}
       </S.CartItemImageWrapper>
       <S.CartProductInfo>
-        <Typography variant="h4">{props.cartItem.product.name}</Typography>
-        <Typography variant="h6" color="#666">
+        <Typography variant="h4" data-testid="cart-item-product-name">
+          {props.cartItem.product.name}
+        </Typography>
+        <Typography
+          variant="h6"
+          color="#666"
+          data-testid="cart-item-product-sku"
+        >
           SKU: {props.cartItem.product.sku}
         </Typography>
-        <Typography variant="h4" color="#526b89">
+        <Typography
+          variant="h4"
+          color="#526b89"
+          data-testid="cart-item-product-price"
+        >
           Price: {formatPrice(props.cartItem.product.price)}
         </Typography>
       </S.CartProductInfo>
       <S.CartItemSubTotal>
-        <Typography variant="h4">Quantity:</Typography>
+        <Typography variant="h4" data-testid="cart-item-quantity">
+          Quantity:
+        </Typography>
         {props.quantityEditable ? (
           <S.Select
             onChange={(event) => handleUpdate(event, props.cartItem)}
             value={props.cartItem.quantity}
+            data-testid="cart-item-select-quantity"
           >
             {items.map((item, idx) => (
               <option value={idx + 1} key={`cart_quantity_${idx}`}>
@@ -67,7 +86,7 @@ export const CartItem = (props: Props) => {
             <Typography variant="h4">{props.cartItem.quantity}</Typography>
           </div>
         )}
-        <Typography variant="h4">
+        <Typography variant="h4" data-testid="cart-item-product-subtotal">
           Subtotal:
           {formatPrice(props.cartItem.product.price * props.cartItem.quantity)}
         </Typography>

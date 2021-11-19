@@ -9,7 +9,11 @@ export const ProductDescription = (props: Props) => {
   return (
     <>
       <Typography variant="h4">Description: </Typography>
-      <Typography variant="p" color="#666">
+      <Typography
+        variant="p"
+        color="#666"
+        data-testid="product-detail-description"
+      >
         {props.product.description}
       </Typography>
     </>

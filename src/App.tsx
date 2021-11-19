@@ -1,19 +1,14 @@
 import "./App.css";
 import { Router } from "./components/Router/Router";
-import { QueryClient, QueryClientProvider } from "react-query";
 import { GlobalStyle } from "./globalStyles";
-import { store } from "./AppStore";
-import { Provider } from "react-redux";
+import { AppProviders } from "./AppProviders";
 
 function App() {
-  const queryClient = new QueryClient();
   return (
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <GlobalStyle />
-        <Router />
-      </QueryClientProvider>
-    </Provider>
+    <AppProviders>
+      <GlobalStyle />
+      <Router />
+    </AppProviders>
   );
 }
 

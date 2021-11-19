@@ -9,4 +9,9 @@ export const Button = styled.button`
   font-weight: 600;
   width: 100%;
   cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+    background: #ddd;
+    color: #ccc;
+  }
 `;

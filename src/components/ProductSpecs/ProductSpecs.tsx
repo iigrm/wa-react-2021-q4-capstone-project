@@ -22,7 +22,8 @@ export const ProductSpecs = (props: Props) => {
         <tbody>
           {props.product.specs?.map((spec) => (
             <S.TR key={`specs_${spec.specName}`}>
-              <td>{spec.specName}</td> <td>{spec.specValue}</td>
+              <td>{spec.specName}</td>
+              <td>{spec.specValue}</td>
             </S.TR>
           ))}
         </tbody>

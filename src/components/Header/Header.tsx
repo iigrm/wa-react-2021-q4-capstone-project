@@ -34,8 +34,9 @@ export const Header = () => {
         value={value}
         placeholder="Search for anything"
         name="search"
+        data-testid="search-input"
       />
-      <ButtonLink onClick={handleClick}>
+      <ButtonLink onClick={handleClick} data-testid="search-button">
         <Typography variant="h5" color="white">
           Search
         </Typography>

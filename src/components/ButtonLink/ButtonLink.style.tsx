@@ -5,15 +5,15 @@ export const ButtonLink = styled.button`
   outline: 0;
   text-decoration: none;
   border: 0;
-  height: 30xpx;
   cursor: pointer;
 
   &:hover {
     text-decoration: underline;
   }
 
-  &::disabled {
+  &:disabled {
     cursor: not-allowed;
     text-decoration: none;
+    color: #bfd3ef !important;
   }
 `;

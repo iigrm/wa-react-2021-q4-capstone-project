@@ -15,18 +15,21 @@ export const Pagination = (props: Props) => {
     <>
       {totalPages > 1 && (
         <S.PaginationWrapper>
-          <ButtonLink>
-            <S.ItemWrapper onClick={() => onSetPage(1)}>Start</S.ItemWrapper>
+          <ButtonLink onClick={() => onSetPage(1)}>
+            <S.ItemWrapper>Start</S.ItemWrapper>
           </ButtonLink>
-          <ButtonLink disabled={page === 1}>
-            <S.ItemWrapper onClick={() => onSetPage(page - 1)}>
-              Prev
-            </S.ItemWrapper>
+          <ButtonLink
+            disabled={page === 1}
+            onClick={() => onSetPage(page - 1)}
+            data-testid="pagination-prev-button"
+          >
+            <S.ItemWrapper>Prev</S.ItemWrapper>
           </ButtonLink>
           {items.map((n, idx) => (
             <ButtonLink
               key={`pagination_${idx}`}
               onClick={() => onSetPage(idx + 1)}
+              data-testid="pagination-number-button"
             >
               <S.ItemWrapper selected={idx + 1 === page}>
                 {idx + 1}
@@ -36,10 +39,14 @@ export const Pagination = (props: Props) => {
           <ButtonLink
             onClick={() => onSetPage(page + 1)}
             disabled={page === totalPages}
+            data-testid="pagination-next-button"
           >
             <S.ItemWrapper>Next</S.ItemWrapper>
           </ButtonLink>
-          <ButtonLink onClick={() => onSetPage(totalPages)}>
+          <ButtonLink
+            onClick={() => onSetPage(totalPages)}
+            data-testid="pagination-end-button"
+          >
             <S.ItemWrapper>End</S.ItemWrapper>
           </ButtonLink>
         </S.PaginationWrapper>

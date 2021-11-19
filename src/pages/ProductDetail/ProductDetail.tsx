@@ -25,14 +25,23 @@ export const ProductDetail = () => {
         <Layout>
           <S.ProductDetailWrapper>
             <S.ProductImageWrapper>
-              <Typography variant="h2">{data.name}</Typography>
-              <Typography variant="h6" color="#666">
+              <Typography variant="h2" data-testid="product-detail-name">
+                {data.name}
+              </Typography>
+              <Typography
+                variant="h6"
+                color="#666"
+                data-testid="product-detail-sku"
+              >
                 SKU: {data.sku}
               </Typography>
               <ProductImage product={data} />
             </S.ProductImageWrapper>
             <S.ProductDescription>
-              <AddTocartButton product={data} />
+              <AddTocartButton
+                product={data}
+                data-testid="product-detail-button"
+              />
               <ProductInfo product={data} />
               <ProductDescription product={data} />
               <ProductSpecs product={data} />

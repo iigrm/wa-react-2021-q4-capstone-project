@@ -1,0 +1,142 @@
+{
+  "page": 1,
+  "results_per_page": 20,
+  "results_size": 1,
+  "total_results_size": 1,
+  "total_pages": 1,
+  "next_page": null,
+  "prev_page": null,
+  "results": [{
+    "id": "YWI42hIAACwAy3ld",
+    "uid": null,
+    "url": null,
+    "type": "product",
+    "href": "https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YXc6vhIAACsAyYIc&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YWI42hIAACwAy3ld%22%29+%5D%5D",
+    "tags": ["Bedroom", "Nightstand"],
+    "first_publication_date": "2021-10-10T00:50:38+0000",
+    "last_publication_date": "2021-10-10T02:26:21+0000",
+    "slugs": ["lindwood-nightstand", "buro-lindwood"],
+    "linked_documents": [],
+    "lang": "en-us",
+    "alternate_languages": [{
+      "id": "YWI4KxIAACkAy3ZR",
+      "type": "product",
+      "lang": "es-mx"
+    }],
+    "data": {
+      "name": "Lindwood Nightstand",
+      "sku": "1078053433",
+      "category": {
+        "id": "YWHviRIAACsAyjP3",
+        "type": "category",
+        "tags": [],
+        "slug": "furniture",
+        "lang": "en-us",
+        "first_publication_date": "2021-10-09T23:34:39+0000",
+        "last_publication_date": "2021-10-12T23:30:58+0000",
+        "link_type": "Document",
+        "isBroken": false
+      },
+      "mainimage": {
+        "dimensions": {
+          "width": 696,
+          "height": 900
+        },
+        "alt": "Lindwood Nightstand",
+        "copyright": null,
+        "url": "https://images.prismic.io/wizeline-academy/59064fa0-81a2-41b2-9d28-7b8bd265e244_1.webp?auto=compress,format"
+      },
+      "short_description": "Its straight and simple lines give our Linwood collection an attractive and direct style. With its off-white finish and antique hardware details, this bureau offers contrast and a vintage touch.",
+      "description": [{
+        "type": "paragraph",
+        "text": "Its straight and simple lines give our Linwood collection an attractive and direct style. With its off-white finish and antique hardware details, this bureau offers contrast and a vintage touch. Handcrafted from solid Meranti wood, Sungkai veneers and MDF. Hand applied off white finish. Metal hardware has an antique finish. Drawers feature English dovetail assembly. All wood is kiln dried, a process that ensures furniture never split, warp, crack or mold. The bureau has three spacious drawers to store things.",
+        "spans": []
+      }],
+      "specs": [{
+        "spec_name": "Dimensions",
+        "spec_value": "General: 71 cm wide x 43 cm deep x 76 cm high. Drawer interior: 56 cm wide x 32 cm deep x 11.50 cm high. Space from floor to bottom of shelf: 9 cm high. Drawer weight capacity: 5.60 kg. Weight: 28 kg \""
+      }, {
+        "spec_name": "Care and Cleaning Instructions",
+        "spec_value": "Wipe clean with a soft, dry cloth. Wipe up spills immediately with a clean, dry cloth. Avoid using furniture polishes"
+      }, {
+        "spec_name": "Material",
+        "spec_value": "Wood"
+      }],
+      "images": [{
+        "image": {
+          "dimensions": {
+            "width": 696,
+            "height": 900
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/wizeline-academy/59064fa0-81a2-41b2-9d28-7b8bd265e244_1.webp?auto=compress,format"
+        }
+      }, {
+        "image": {
+          "dimensions": {
+            "width": 696,
+            "height": 900
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/wizeline-academy/4b6d549e-57e4-45b9-bec1-f68a1aa83214_2.webp?auto=compress,format"
+        }
+      }, {
+        "image": {
+          "dimensions": {
+            "width": 696,
+            "height": 900
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/wizeline-academy/9f957c8b-e0e7-4c21-be8e-5e19475f04d1_3.webp?auto=compress,format"
+        }
+      }, {
+        "image": {
+          "dimensions": {
+            "width": 696,
+            "height": 900
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/wizeline-academy/12904645-78b3-43b8-8208-34bfb116bec5_4.jpeg?auto=compress,format"
+        }
+      }, {
+        "image": {
+          "dimensions": {
+            "width": 696,
+            "height": 900
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/wizeline-academy/b4b3b0b3-bc09-4e43-82f9-68dd8c706f42_5.webp?auto=compress,format"
+        }
+      }, {
+        "image": {
+          "dimensions": {
+            "width": 696,
+            "height": 900
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/wizeline-academy/433b925d-64eb-44b5-ad0f-b8ae02748391_6.webp?auto=compress,format"
+        }
+      }, {
+        "image": {
+          "dimensions": {
+            "width": 696,
+            "height": 900
+          },
+          "alt": null,
+          "copyright": null,
+          "url": "https://images.prismic.io/wizeline-academy/ca95bf99-0cca-44bf-92e7-03aa0f0261dc_7.jpeg?auto=compress,format"
+        }
+      }],
+      "stock": 7,
+      "price": 820.7
+    }
+  }],
+  "version": "31acd9d",
+  "license": "This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
+}

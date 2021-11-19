@@ -80,12 +80,17 @@ export const ProductList = () => {
             </S.CategoriesFilterWrapper>
             <S.ProductsWrapper>
               {products.length ? (
-                <ProductsGrid
-                  products={products}
-                  pagination={data?.pagination}
-                  onSetPage={(page: number) => handleSetPage(page)}
-                  showPagination={true}
-                />
+                <>
+                  <Typography variant="h5" data-testid="results-page-number">
+                    Showing page: {data.pagination.page}
+                  </Typography>
+                  <ProductsGrid
+                    products={products}
+                    pagination={data?.pagination}
+                    onSetPage={(page: number) => handleSetPage(page)}
+                    showPagination={true}
+                  />
+                </>
               ) : (
                 <Typography variant="h2">No results found</Typography>
               )}
